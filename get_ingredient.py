@@ -1,6 +1,6 @@
 import re
 def get_engredient(text):
-    """ mmMy fonction """
+    """ Trouver les ingredients ainsi que leur quantité"""
     if(text[0].isnumeric()):
          splitText=text.split()
          if(len(splitText)== 3 ):
@@ -12,8 +12,7 @@ def get_engredient(text):
          if (len(splitText) == 2):
              print(splitText[0]+', '+splitText[1])
     else:
-        #m = re.match(r"(\w+) (\w+) (\w+) (\w+)", text)
-        #print(m.group(0))
+
         pass
 
     #print(re.match(r"(\w+) (\w+) (\w+)", text))

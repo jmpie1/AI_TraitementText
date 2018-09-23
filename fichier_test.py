@@ -55,6 +55,12 @@ def affiche_longeur(text, nb):
            motif_hambergur = re.compile(r"(?P<quantite>\d \w+)-(?P<produit>\w+ \w+)")
            valeur_motif_ham = motif_hambergur.search(to_string)
            print(to_string+ "  Résultat: "  + valeur_motif_ham.group('produit') + ', '+ valeur_motif_ham.group('quantite'))
+
+       elif re.search(r"petit|grand", to_string):
+           motif_pet_grand = re.compile(r"(?P<quantite>\d) (?P<produit>\w+ \w+)")
+           valeur_motif_pet_grand = motif_pet_grand.search(to_string)
+           print(to_string+ "  Résultat: "  + valeur_motif_pet_grand.group('produit') + ', '+ valeur_motif_pet_grand.group('quantite'))
+
        else:
            print(to_string+ "  Résultat OUI: "  + split_text[2].replace("d'","").replace("d’","") + ', ' + split_text[0] + ' ' + split_text[1])
     print(m)

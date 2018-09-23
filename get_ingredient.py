@@ -1,23 +1,27 @@
 import re
-def get_engredient(text):
-    """ Trouver les ingredients ainsi que leur quantité"""
-    if(text[0].isnumeric()):
-         splitText=text.split()
-         if(len(splitText)== 3 ):
-             if(re.match(r"(\w+) (\w+) (\w+)", text)==None):
-                  #m1 = re.match(r"(\w+) (\w+) (\w+)", text)
-                  print(splitText[0] + ' ' + splitText[1] + ', ' + splitText[2])
-             else:
-                 print(splitText[0]+' '+splitText[1]+', '+splitText[2])
-         if (len(splitText) == 2):
-             print(splitText[0]+', '+splitText[1])
+from typing import Any
+
+
+def affiche_longeur_3(text):
+    """
+    Permet d'afficher les textes commancant par un chiffre et dont le nombre de trois est mots
+    :type text: string
+
+    """
+
+    if text[0].isnumeric():
+        split_text = text.split()  # type: string
+        if len(split_text) == 3:
+            if re.match(r"(\w+) (\w+) (\w+)", text) is None:
+                # m1 = re.match(r"(\w+) (\w+) (\w+)", text)
+                print(split_text[0] + ' ' + split_text[1] + ', ' + split_text[2])
+            else:
+                print(split_text[0] + ' ' + split_text[1] + ', ' + split_text[2])
+        if len(split_text) == 2:
+            print(split_text[0] + ', ' + split_text[1])
     else:
 
         pass
 
-    #print(re.match(r"(\w+) (\w+) (\w+)", text))
-# get_engredient("2 cuillères à café de poudre à pâte")
 
-get_engredient("6 poivre ")
-
-
+affiche_longeur_3("2 gousses d'ail")

@@ -18,8 +18,10 @@ def classer_text(file):
                 else:
                     dico[n].append(ma_list)
     #print(m)
-    print(dico)
-classer_text("ingredients.txt")
+   # print(dico)
+    return dico
+#toto=classer_text("ingredients.txt")
+#print(toto)
 
 def affiche_longeur_3(text):
     """

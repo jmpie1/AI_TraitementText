@@ -81,7 +81,7 @@ def affiche_longeur3(text3, nb):
 def affiche_longeur100(text100):
     ma_liste = classer_text(text100)[100]
     for ligne in  ma_liste:
-      if len(ligne) == 4:
+      if len(ligne) == 5:
         lmot = len(ligne)
         if lmot == 1:
             print("Ingrédients: " +ligne[0] + ", "+ "Quantité:     ")
@@ -106,7 +106,7 @@ def affiche_longeur100(text100):
                 print(ligne[0] + " " + ligne[1] + " " + ligne[2] + " Ingrédients: " + ligne[2] + ", " + "Quantité: " + (ligne[1]).replace("d'","") )
             else:
                 print(ligne[0]+" " +ligne[1]+" " +ligne[2] +" Ingrédients: " + ligne[0]+ " "+ligne[1]+ " " + ligne[2] + ", " + "Quantité:     ")
-      if len(ligne) == 4:
+        if len(ligne) == 4:
           if "Quelques" in ligne:
               print(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] +
                     " Ingrédients: "  + ligne[3] + ", " + "Quantité: " + ligne[0] + " " + ligne[1])
@@ -127,7 +127,16 @@ def affiche_longeur100(text100):
           else:
              print(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] +
                 " Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + ", " + "Quantité:     ")
-
+      if len(ligne) == 5:
+          if "Préparation"  in ligne:
+                  print(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + " " + ligne[4] +" Ingrédients: " + ",  " + "Quantité:     ")
+          elif "Feuille"  in ligne:
+                  print(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + " " + ligne[4] +" Ingrédients: " + ligne[2]+ ",  " +
+                        "Quantité: "+ligne[0]+ " " + ligne[3] + " " + ligne[4])
+          else:
+              print(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + " " + ligne[4] + " Ingrédients: " +
+                    ligne[0] + " " +ligne[1] + " " + ligne[2]+",  " +
+                    "Quantité: " + ligne[3]+" " + ligne[4])
 
 if __name__ == "__main__":
     print(classer_text("ingredients.txt")[100])

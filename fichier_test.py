@@ -90,15 +90,20 @@ def affiche_longeur_4(text):
     for ligne in text:
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " +ligne[3]
 
-        if re.search(r"purée$|échalotes|oignon", my_string) :
-            print(my_string + " Ingrédients: " + ligne[1] + ', ' + "Quantité: " + ligne[0] )
-        elif re.search(r"\d ((\w+)|(c.à.c)) de (\w+)", my_string):
-            if "lime" in ligne:
+        if re.search(r"purée$|échalote[s]?|oignon", my_string) :
+            if "française," in ligne:
+                print(my_string + " Ingrédients: " + ligne[1] + " " + (ligne[2]).replace(",","") + ', ' + "Quantité: " + ligne[0])
+            elif "échalote" in ligne:
+                print(my_string + " Ingrédients: " + ligne[2] + ', ' + "Quantité: " + ligne[0]+" " + ligne[1])
+            else:
+                 print(my_string + " Ingrédients: " + ligne[1] + ', ' + "Quantité: " + ligne[0] )
+        elif re.search(r"(\d|½) ((\w+)|(c.à.c)|(c.à.s)) de (\w+)", my_string):
+            if ("lime" in ligne):
                  print(my_string + " Ingrédients: " + ligne[1]+" "+ ligne[2] + " "+ ligne[3] + ', ' + "Quantité: " + ligne[0] )
             else:
                  print(my_string + " Ingrédients: "  + ligne[3] + ', ' + "Quantité: " + ligne[0] + " " +ligne[1])
-        elif re.search(r"hachée$|française|d’ail,|saucisses", my_string):
-            print(my_string + " Ingrédients: " + ligne[1] + " " +(ligne[2]).replace("d’","")+ ', ' + "Quantité: " + ligne[0] )
+        elif re.search(r"hachée$|d’ail,|saucisses", my_string):
+            print(my_string + " Ingrédients: " + ligne[1] + " " +(ligne[2].replace(",","")).replace("d’","")+ ', ' + "Quantité: " + ligne[0] )
         # elif re.search(r"", my_string):
 
         else:

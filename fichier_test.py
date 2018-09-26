@@ -110,6 +110,29 @@ def affiche_longeur_4(text):
             print(my_string +" Ingrédients: "+ligne[2].replace("d'","").replace("d’","") + " " +ligne[3] + ', '+ "Quantité: " + ligne[0] + " " +ligne[1])
 
 
+def affiche_longeur_5(text):
+    for ligne in text:
+        my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]
+        if re.search(r"\d (\w+) de (\w+) (\w+)", my_string):
+               if "noix" == ligne[1]:
+                   print(my_string + " Ingrédients: " + ligne[3] +', ' + "Quantité: " + ligne[0] + " " + ligne[1])
+               else:
+                   print(my_string + " Ingrédients: " + ligne[3] + " " + ligne[4] + ', ' + "Quantité: " + ligne[0] + " "+ligne[1])
+        elif  re.search(r"café|(c. à .s)",my_string):
+            print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1]+ " "+ligne[3]  + ', ' + "Quantité: " + ligne[4].replace("d’",""))
+        elif re.search(r"sauce",my_string):
+            print(my_string + "ooooooooooooooo Ingrédients: " + " " + ligne[3] + " " + ligne[4] + ', ' + "Quantité: " + ligne[0] + " " + ligne[1])
+        elif "cheddar" == ligne[3]:
+            print(my_string + " Ingrédients: " + ligne[2] + " " + ligne[3] + ', ' + "Quantité: " + ligne[0]+ " " +ligne[1]  )
+        elif re.search(r"\d petit oignon",my_string):
+            print(my_string + " Ingrédients: " + ligne[1] + " " + ligne[2] + " " + ligne[3] + ', ' + "Quantité: " + ligne[0])
+        elif "farine" == ligne[4]:
+            print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + ', ' + "Quantité: " +ligne[4])
+        elif re.search(r"Kg$",my_string):
+            print(my_string + " Ingrédients: " + ligne[1]+', ' + "Quantité: " + ligne[0]+ " (" + ligne[3]+ligne[4]+ ")")
+        else:
+            print(my_string + "ooooooooooooooo Ingrédients: " + (ligne[2].replace("d’","") + " "+ligne[3] + " " + ligne[4] + ', ' + "Quantité: " + ligne[0] + " "+ligne[1]))
+
 
 
 def affiche100_len_1(len1):
@@ -229,18 +252,22 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[4]
+    Val=classer_text("ingredients.txt")[5]
     #print(len(Val))
+    n=0
     for i in Val:
+        n +=1
         #if len(i)==10:
         print (i)
+    print(n)
     # affiche_longeur3("ingredients.txt", 3)
     #affiche_longeur100("ingredients.txt")
     # affiche100_len_6(['une', 'petite', 'tasse', 'de', 'riz', 'rond'])
 
     #affiche100_len_7(['trait', 'jus', 'de', 'citron', 'ou', 'de', 'lime'])
     #affiche_longeur_2(Val)
-    affiche_longeur_4(Val)
+    #affiche_longeur_4(Val)
+    affiche_longeur_5(Val)
 
 
 

@@ -139,8 +139,8 @@ def affiche_longeur_6(text):
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]
         if re.search(r"\d (c.) (à) (\w+) de (\w+)", my_string):
             print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ ', ' + "Quantité: " + ligne[5])
-        elif  re.search(r"\d+ (\w+) de (\w+) (\w+) (\w+)", my_string):
-            print(my_string + " gggggggggggg Ingrédients: " + ligne[0] + " " + ligne[1] + ', ' + "Quantité: " +" " + ligne[3] + " " + ligne[4] +" " +ligne[5])
+        elif  re.search(r"(\d+|\d) (\w+) (de) (\w+) (\w+) (\w+)", my_string):
+            print(my_string + " gggggggggggg Ingrédients: " + ligne[0]  +" " + ligne[1]+ ', ' + "Quantité: " +" " + ligne[3] + " " + ligne[4] +" " +ligne[5])
 
 
 

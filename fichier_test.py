@@ -137,10 +137,30 @@ def affiche_longeur_5(text):
 def affiche_longeur_6(text):
     for ligne in text:
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]
-        if re.search(r"\d (c.) (à) (\w+) de (\w+)", my_string):
+        if re.search(r"\d (c.) (à) (\w+) de (\w+)", my_string) or "bicarbonate" in ligne:
             print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ ', ' + "Quantité: " + ligne[5])
         elif  re.search(r"(\d+|\d) (\w+) (de) (\w+) (\w+) (\w+)", my_string):
-            print(my_string + " gggggggggggg Ingrédients: " + ligne[0]  +" " + ligne[1]+ ', ' + "Quantité: " +" " + ligne[3] + " " + ligne[4] +" " +ligne[5])
+            if "congre" in ligne:
+                print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[ 1] + " ("+ligne[ 4]+ ligne[ 5]+ ")"+', ' + "Quantité: " + " " + ligne[3])
+            else:
+                print(my_string + " Ingrédients: " + ligne[0]  +" " + ligne[1]+ ', ' + "Quantité: " +" " + ligne[3] + " " + ligne[4] +" " +ligne[5])
+        elif re.search(r"(\()", my_string):
+             print(my_string +" Ingrédients: " + (ligne[4]).replace("d’","")  +" " + ligne[5]+ ', '+ "Quantité: " + ligne[0] + " " + ligne[ 1] + " "+ligne[ 2]+ " "+ligne[ 3])
+
+        elif re.search(r"(c.à.s)", my_string):
+             print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + ', ' + "Quantité: " + ligne[3] + " " + ligne[4]+" " + ligne[5])
+
+        elif re.search(r"décorer$", my_string):
+            print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + ', ' + "Quantité: " + (ligne[3]).replace(",","") )
+        elif re.search(r"pommes", my_string):
+            print(my_string + " Ingrédients: " + ligne[0]+', ' + "Quantité: " + ligne[1] + " " + ligne[2] )
+
+        elif re.search(r"pièce", my_string):
+            print(my_string + " bbbb Ingrédients: " + ligne[3] + ', ' + "Quantité: " +  ligne[0] + " " + ligne[1]
+                  + " " +"("+ligne[4].replace("d'","")+" "+ligne[5]+")" )
+
+        else:
+            print(my_string + " bbbb Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + ', ' + "Quantité: " + ligne[5])
 
 
 

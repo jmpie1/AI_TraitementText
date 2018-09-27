@@ -306,7 +306,7 @@ if __name__ == "__main__":
     #affiche_longeur_4(Val)
     #affiche_longeur_5(Val)
     #affiche_longeur_6(Val)
-    #affiche_longeur_7(Val) à faire demain
+    #affiche_longeur_7(Val)  a faire demain et le 8
 
 
 

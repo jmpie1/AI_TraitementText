@@ -228,6 +228,35 @@ def affiche_longeur_8(text):
               + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3] )
 
 
+def affiche_longeur_9(text):
+    for ligne in text:
+        my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8]
+        if re.search(r"(biseaux$arachide)",ligne[8]):
+            print(my_string + " Ingredients: " + ligne[4] + " " + ligne[5]  + ", " + "Quantité: "
+                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] )
+
+        elif re.search(r"(arachide$)",ligne[8]):
+            print(my_string + " Ingredients: " + ligne[4].replace("d’", "") + " " + ligne[5]+" "+ ligne[6]+" " + ligne[7]+" " + ligne[8] + ", " + "Quantité: "
+                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] )
+
+        elif re.search(r"(nettoyées$)",ligne[8]):
+            print(my_string + " Ingredients: " + ligne[5].replace(",", "") + ", " + "Quantité: "
+                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] )
+        elif re.search(r"(l’eau$)",ligne[8]):
+            print(my_string + " Ingredients: " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8] +", " + "Quantité: "
+                  + ligne[0] + " " + ligne[1] )
+        elif re.search(r"(dorées$)",ligne[8]):
+            print(my_string + " Ingredients: " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8] +", " + "Quantité: "
+                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3])
+
+        else:
+           print(my_string +" Ingredients: " +ligne[6] + " " + ligne[7] + " " + ligne[8]+ ", "  + "Quantité: "
+              + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5])
+
+
 def affiche100_len_1(len1):
     """ Cette fonction affiche les ligne qui ont um seul mot et ne commanssant pas par un nombre"""
     print("Ingrédients: " + len1[0] + ", " + "Quantité:     ")
@@ -345,7 +374,7 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[8]
+    Val=classer_text("ingredients.txt")[9]
     #print(len(Val))
     n=0
     for i in Val:
@@ -363,7 +392,8 @@ if __name__ == "__main__":
     #affiche_longeur_5(Val)
     #affiche_longeur_6(Val)
     #affiche_longeur_7(Val)
-    affiche_longeur_8(Val)
+    #affiche_longeur_8(Val)
+    affiche_longeur_9(Val)
 
 
 

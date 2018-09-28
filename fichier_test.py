@@ -169,8 +169,35 @@ def affiche_longeur_7(text):
     for ligne in text:
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " + ligne[6]
 
-        print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ ", "  + "Quantité: "
-                +ligne[5] + " " + ligne[6])
+        if re.search( r"((ml\))|(g\))|(soupe\)))",ligne[5]):
+            print(my_string + " Ingrédients: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " +
+                  ligne[3] + " "+ ligne[4] + " " + ligne[5] + ", " + "Quantité: " + ligne[6].replace("d’",""))
+        elif re.search( r"(claire$|foncée$|frisé$|Paris$|verts$)",ligne[6]):
+            print(my_string + " Ingrédients: " + ligne[3] + " " + ligne[4] + " " + ligne[5] + " " +
+                  ligne[6] + ", " + "Quantité: " + ligne[0] + " " + ligne[1])
+
+        elif re.search( r"(blanc$|fraîche$|râpé$|moulue$|César$|séché$|balsamique$|pla$)",ligne[6]):
+            if "rhum"== ligne[5] or "nam"== ligne[5]:
+                print(my_string + " Ingrédients: " + ligne[5] + " " +
+                      ligne[6] + ", " + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4])
+            else:
+              print(my_string + " Ingrédients: " + ligne[5] + " " +
+                  ligne[6] + ", " + "Quantité: " + ligne[0] + " " + ligne[1]+ " " + ligne[2] + " " + ligne[3])
+        elif re.search( r"(purée$)",ligne[6]):
+            print(my_string + " Ingrédients: " + ligne[2] + " " + ligne[3] + " " +
+                  ligne[4] + ", " + "Quantité: " + ligne[0] + " " + ligne[1] )
+        elif re.search( r"(rawit)",ligne[6]):
+            print(my_string + " Ingrédients: " + ligne[1] + " " + ligne[2] + " " +ligne[3]+ " " + ligne[4]+
+                  " " +ligne[5] + " " + ligne[6]+", " + "Quantité: " + ligne[0] )
+        elif re.search( r"rincées$",ligne[6]):
+            print(my_string + " Ingrédients: " + ligne[1] + " " + ligne[2] +", " + "Quantité: " + ligne[0] )
+
+        elif re.search( r"g$",ligne[6]):
+            print(my_string + " Ingrédients: " + ligne[3] +", " +
+                  "Quantité: " + ligne[0]+" " +ligne[1] + " (" + ligne[5] + " " +ligne[6]+")" )
+        else:
+          print(my_string + " Ingrédients: " + (ligne[4]).replace("d’","") + " " + ligne[5] + " " + ligne[6]+ ", "  + "Quantité: "
+              + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3])
 
 def affiche100_len_1(len1):
     """ Cette fonction affiche les ligne qui ont um seul mot et ne commanssant pas par un nombre"""
@@ -289,12 +316,12 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[10]
+    Val=classer_text("ingredients.txt")[7]
     #print(len(Val))
     n=0
     for i in Val:
         n +=1
-        #if len(i)==10:
+        #if len(i)==7:
         print (i)
     print(n)
     # affiche_longeur3("ingredients.txt", 3)
@@ -306,7 +333,7 @@ if __name__ == "__main__":
     #affiche_longeur_4(Val)
     #affiche_longeur_5(Val)
     #affiche_longeur_6(Val)
-    #affiche_longeur_7(Val)  a faire demain et le 8
+    affiche_longeur_7(Val)
 
 
 

@@ -257,6 +257,33 @@ def affiche_longeur_9(text):
               + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5])
 
 
+
+def affiche_longeur_10(text):
+    for ligne in text:
+        my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8]+" " + ligne[9]
+        if re.search(r"(égoutté[e]?s$)",my_string):
+            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                  + ", " + "Ingrédiant: " + ligne[5]+ " " +\
+                    ligne[6]+"" +(ligne[7] + " " + ligne[8]).replace("rincés et",""))
+        elif re.search(r"(râpé$)",my_string):
+            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                  +  " " + ligne[4]+ " " + ligne[5]+", " + "Ingrédiant: " + ligne[7])
+        elif re.search(r"(beurre,)",my_string):
+            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                  +  " " + ligne[4]+ " " + ligne[5]+" " + ligne[9]+", " + "Ingrédiant: " + ligne[7])
+
+        elif re.search(r"(secs)", my_string):
+            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + ", " + "Ingrédiant: " + ligne[3] +" "+ ligne[4] +" "+ ligne[5])
+        else:
+
+           print(my_string +
+                 " Quantités: " +ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6].replace("de","") +" , " +"Ingrédients: "+ ligne[7].replace("d’","")+" " + ligne[8]+ ", ")
+
+
+
+
 def affiche100_len_1(len1):
     """ Cette fonction affiche les ligne qui ont um seul mot et ne commanssant pas par un nombre"""
     print("Ingrédients: " + len1[0] + ", " + "Quantité:     ")
@@ -374,7 +401,7 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[9]
+    Val=classer_text("ingredients.txt")[10]
     #print(len(Val))
     n=0
     for i in Val:
@@ -393,7 +420,9 @@ if __name__ == "__main__":
     #affiche_longeur_6(Val)
     #affiche_longeur_7(Val)
     #affiche_longeur_8(Val)
-    affiche_longeur_9(Val)
+    #affiche_longeur_9(Val)
+
+    affiche_longeur_10(Val)
 
 
 

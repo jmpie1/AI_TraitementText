@@ -281,7 +281,43 @@ def affiche_longeur_10(text):
                  " Quantités: " +ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6].replace("de","") +" , " +"Ingrédients: "+ ligne[7].replace("d’","")+" " + ligne[8]+ ", ")
 
+def affiche_longeur_11(text):
+    for ligne in text:
+        my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8]+" " + ligne[9]+" "+ligne[10]
 
+        if re.search(r"(morceaux)",my_string):
+
+           print(my_string + " Quantités: " + ligne[0] + " " + ligne[1] + " , " + "Ingrédients: " + ligne[2] + " " + ligne[3]
+                 + " " + ligne[4])
+        elif re.search(r"(blanc)",my_string):
+
+           print(my_string + " Quantités: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " , " + "Ingrédients: " + ligne[7] + " " + ligne[8]
+                 + " " + ligne[9]+ " " + ligne[10])
+
+        elif re.search(r"(langoustines|tomates)",my_string):
+
+           print(my_string + " Quantités: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                 + " , " + "Ingrédients: " + ligne[5] + " " + ligne[6]
+                 + " " + (ligne[7].replace(",","")).replace("et",""))
+        elif re.search(r"(pain)",my_string):
+
+           print(my_string + " Quantités: " + ligne[0] + " " + ligne[1] + " , " + "Ingrédients: " + ligne[3] + " " + ligne[4])
+
+        elif re.search(r"(coriandre)",my_string):
+
+           print(my_string + " Quantités: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                 + " , " + "Ingrédients: " + ligne[5] + " ou " + ligne[10])
+
+        elif re.search(r"(moulu)",my_string):
+
+           print(my_string + " Quantités: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]
+                 + " " + ligne[5]+ " , " + "Ingrédients: " + ligne[7] + " ou " + ligne[8])
+
+        else:
+
+           print(my_string +  " Quantités: " +ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+              +" , " +"Ingrédients: "+ ligne[4].replace("d’","")+" " + ligne[5])
 
 
 def affiche100_len_1(len1):
@@ -401,7 +437,7 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[10]
+    Val=classer_text("ingredients.txt")[11]
     #print(len(Val))
     n=0
     for i in Val:
@@ -421,8 +457,9 @@ if __name__ == "__main__":
     #affiche_longeur_7(Val)
     #affiche_longeur_8(Val)
     #affiche_longeur_9(Val)
+    #affiche_longeur_10(Val)
 
-    affiche_longeur_10(Val)
+    affiche_longeur_11(Val)
 
 
 

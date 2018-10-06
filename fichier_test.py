@@ -1,7 +1,6 @@
 import re
 from typing import Any
 
-
 def classer_text(file):
     """ Classer les lignes dans un dictionnaire en fonction du nombre de mot"""
     dico = {}
@@ -437,14 +436,16 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[11]
+    Val=classer_text("ingredients.txt")[100]
     #print(len(Val))
     n=0
     for i in Val:
         n +=1
         #if len(i)==7:
         print (i)
-    print(n)
+    #print(n)
+
+
     # affiche_longeur3("ingredients.txt", 3)
     #affiche_longeur100("ingredients.txt")
     # affiche100_len_6(['une', 'petite', 'tasse', 'de', 'riz', 'rond'])
@@ -458,8 +459,7 @@ if __name__ == "__main__":
     #affiche_longeur_8(Val)
     #affiche_longeur_9(Val)
     #affiche_longeur_10(Val)
-
-    affiche_longeur_11(Val)
+    #affiche_longeur_11(Val)
 
 
 

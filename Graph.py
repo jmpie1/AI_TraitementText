@@ -17,7 +17,7 @@ print(Counter(nb_mot_par_ligne("ingredients.txt",1)))
 #plt.show()
 
 
-data = Counter(nb_mot_par_ligne("ingredients.txt",1))
+data = Counter(nb_mot_par_ligne("ingredients.txt"))
 names = list(data.keys())
 print(names)
 values = list(data.values())
@@ -26,7 +26,7 @@ print(values)
 #tick_label does the some work as plt.xticks()
 plt.bar(range(len(data)),values,tick_label=names)
 plt.savefig('bar.png')
-plt.xlabel('Nombre de mot par ligne', fontweight='bold', color = 'orange', fontsize='17', horizontalalignment='center')
+plt.xlabel('Nombre de mot', fontweight='bold', color = 'orange', fontsize='17', horizontalalignment='center')
 plt.ylabel('Nombre de ligne', fontweight='bold', color = 'orange', fontsize='17', horizontalalignment='center')
 
 plt.show()

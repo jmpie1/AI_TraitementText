@@ -4,6 +4,19 @@ from nltk.util import ngrams
 from collections import Counter
 
 
+def my_ngrams(sentence, ngram1 ):
+    token_test1 = nltk.word_tokenize(sentence)
+    len_ngram=len(ngram1)
+    dico={ngram1:0}
+    n= len(sentence)-len_ngram+1
+    for i in range(n):
+        #print(ngram1)
+        if ngram1 == tuple(token_test1[i:i+len_ngram]):
+            print(tuple(token_test1[i:i+len_ngram]))
+            dico[ngram1] +=1
+    return   dico[ngram1]
+
+print("wow: ",my_ngrams("je, suis la je suis je suis",("je", "suis")))
 def count_ngram_sentences1(len_ngram1, sentence1, ngram1):
     """ Cette fonction determine le nombre d'occurence d'un n-gram dans une phrase
     :param len_ngram1: entier : longueur du n-gram
@@ -15,6 +28,7 @@ def count_ngram_sentences1(len_ngram1, sentence1, ngram1):
     n_gram_test1 = ngrams(token_test1, len_ngram1)
     return Counter(n_gram_test1)[ngram1]
 
+print("wow1: ",count_ngram_sentences1(2,"je, suis la je suis je suis",("je", "suis")))
 
 def count_ngram(len_ngram, train_data, val_ngram):
     """

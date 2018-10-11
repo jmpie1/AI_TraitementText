@@ -8,6 +8,7 @@ def classer_text(file):
     with open(file,encoding='utf8') as fichier:
         m = 0
         for ligne in fichier:
+
            m += 1
 
            if ligne[0].isnumeric():
@@ -54,7 +55,7 @@ def affiche_longeur3(text, nb):
        if re.search(r"olive,", to_string):
            to_string1 = to_string.replace(",", "")
            to_string1 = to_string1.split()
-           print( "  Résultat: " + to_string1[1] + ', ' + to_string1[0])
+           print( to_string + "  Résultat: " + to_string1[1] + ', ' + to_string1[0])
 
 
        elif re.search(r"vert$|jaune|moyennes$|d’œufs$|thaï$", to_string):
@@ -90,9 +91,9 @@ def affiche_longeur_4(text):
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " +ligne[3]
 
         if re.search(r"purée$|échalote[s]?|oignon", my_string) :
-            if "française," in ligne:
+            if re.search("française,", my_string):
                 print(my_string + " Ingrédients: " + ligne[1] + " " + (ligne[2]).replace(",","") + ', ' + "Quantité: " + ligne[0])
-            elif "échalote" in ligne:
+            elif re.search(r"échalote", my_string):
                 print(my_string + " Ingrédients: " + ligne[2] + ', ' + "Quantité: " + ligne[0]+" " + ligne[1])
             else:
                  print(my_string + " Ingrédients: " + ligne[1] + ', ' + "Quantité: " + ligne[0] )
@@ -318,6 +319,49 @@ def affiche_longeur_11(text):
            print(my_string +  " Quantités: " +ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
               +" , " +"Ingrédients: "+ ligne[4].replace("d’","")+" " + ligne[5])
 
+def affiche_longeur_12(text):
+    for ligne in text:
+        my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8]+" " + ligne[9]+" "+ligne[10]+" "+ligne[11]
+
+        if re.search(r"(concassés$)",my_string):
+            print(ligne[7]+" " + ligne[8]+" " + ligne[9]+" "+ligne[10]+ ", "+ ligne[0] + " " + ligne[1] + " "
+                  + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5])
+        else:
+            print( '"'+ligne[1] + " "+ ligne[2].replace(",","")+'"' + ", " + ligne[0] )
+
+def affiche_longeur_14(text):
+    for ligne in text:
+        my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8]+" " + ligne[9]+" "+ligne[10]+" "+ligne[11]+" "+ligne[12]\
+                    +" " + ligne[13]
+        print('"' + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + '"' + ", " + ligne[4][2:]+ " " + ligne[5])
+
+
+def affiche_longeur_16(text):
+    for ligne in text:
+
+        print('"' + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + '"' + ", " + ligne[4][2:10] )
+
+
+def affiche_longeur_18(text):
+    for ligne in text:
+        if re.search(r"275",ligne[0]):
+          print('"' + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] + '"' + ", " + ligne[5]
+              +" "+ ligne[6]+" "+ ligne[7])
+        else:
+            print( ligne[1]+ ", " + '"' + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]  + " " + ligne[4] +
+                    " " + ligne[5]  + " " + ligne[6]+" " + ligne[7][:-1]+'"')
+
+
+def affiche_longeur_19(text):
+    for ligne in text:
+          print('"' + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]   +" "+ ligne[5]
+                +" "+" "+ ligne[6]+" "+ ligne[7]+ '"'+ ", " + " " + ligne[9] + " " + ligne[10]  +" " + ligne[11]+" " + ligne[12])
+
+
+
+
 
 def affiche100_len_1(len1):
     """ Cette fonction affiche les ligne qui ont um seul mot et ne commanssant pas par un nombre"""
@@ -436,23 +480,25 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[100]
+    Val=classer_text("ingredients.txt")[19]
     #print(len(Val))
-    n=0
+    #n=0
     for i in Val:
-        n +=1
+        #n +=1
         #if len(i)==7:
         print (i)
     #print(n)
 
 
-    # affiche_longeur3("ingredients.txt", 3)
+    #affiche_longeur3("ingredients.txt", 3)
+    #affiche_longeur3(Val)
     #affiche_longeur100("ingredients.txt")
     # affiche100_len_6(['une', 'petite', 'tasse', 'de', 'riz', 'rond'])
 
     #affiche100_len_7(['trait', 'jus', 'de', 'citron', 'ou', 'de', 'lime'])
     #affiche_longeur_2(Val)
     #affiche_longeur_4(Val)
+       #affiche_longeur_3(Val)
     #affiche_longeur_5(Val)
     #affiche_longeur_6(Val)
     #affiche_longeur_7(Val)
@@ -460,7 +506,11 @@ if __name__ == "__main__":
     #affiche_longeur_9(Val)
     #affiche_longeur_10(Val)
     #affiche_longeur_11(Val)
-
+    #affiche_longeur_12(Val)
+    #affiche_longeur_14(Val)
+    #affiche_longeur_16(Val)
+    #affiche_longeur_18(Val)
+    affiche_longeur_19(Val)
 
 
 

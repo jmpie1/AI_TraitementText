@@ -55,27 +55,26 @@ def affiche_longeur3(text, nb):
        if re.search(r"olive,", to_string):
            to_string1 = to_string.replace(",", "")
            to_string1 = to_string1.split()
-           print( to_string + "  Résultat: " + to_string1[1] + ', ' + to_string1[0])
+           print( ' "{0}", "{1}"'.format(to_string1[1] , to_string1[0]))
 
 
        elif re.search(r"vert$|jaune|moyennes$|d’œufs$|thaï$", to_string):
-                        print( to_string+ "  Résultat: "+ (split_text[1] + ' ' + split_text[2]).replace(",","") + ', '+ split_text[0])
+           print(' "{0}", "{1}"'.format((split_text[1] + ' ' + split_text[2]).replace(",",""), split_text[0]))
        elif re.search(r"émincé[s]?$|battu$|écrasés$|tranché$", to_string):
 
-           print(to_string+ "  Résultat: "+ split_text[1] + ', ' + split_text[0])
+           print(' "{0}", "{1}"'.format(split_text[1] , split_text[0]))
        elif re.search(r"hamburger$", to_string):
            motif_hambergur = re.compile(r"(?P<quantite>\d \w+)-(?P<produit>\w+ \w+)")
            valeur_motif_ham = motif_hambergur.search(to_string)
-           print(to_string+ "  Résultat: "  + valeur_motif_ham.group('produit') + ', '+ valeur_motif_ham.group('quantite'))
-
+           print(' "{0}", "{1}"'.format(valeur_motif_ham.group('produit'), valeur_motif_ham.group('quantite')))
        elif re.search(r"petit|grand", to_string):
            motif_pet_grand = re.compile(r"(?P<quantite>\d) (?P<produit>\w+ \w+)")
            valeur_motif_pet_grand = motif_pet_grand.search(to_string)
-           print(to_string+ "  Résultat: "  + valeur_motif_pet_grand.group('produit') + ', '+ valeur_motif_pet_grand.group('quantite'))
-
+           #print(to_string+ "  Résultat: "  + valeur_motif_pet_grand.group('produit') + ', '+ valeur_motif_pet_grand.group('quantite'))
+           print(' "{0}", "{1}"'.format(valeur_motif_pet_grand.group('produit'), valeur_motif_pet_grand.group('quantite')))
        else:
-           print(to_string+ "  Résultat OUI: "  + split_text[2].replace("d'","").replace("d’","") + ', ' + split_text[0] + ' ' + split_text[1])
-    #print(m)
+           #print(to_string+ "  Résultat OUI: "  + split_text[2].replace("d'","").replace("d’","") + ', ' + split_text[0] + ' ' + split_text[1])
+           print(' "{0}", "{1}"'.format(split_text[2].replace("d'","").replace("d’",""),split_text[0] + ' ' + split_text[1] ))
 def affiche_longeur_2(text):
     """
     Permet d'afficher les textes commancant par un chiffre et dont le nombre de mots est trois
@@ -203,28 +202,28 @@ def affiche_longeur_8(text):
     for ligne in text:
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6]+" " + ligne[7]
-        if re.search(r"(râpé$)", ligne[7]):
-            print(my_string + " Ingredients: " +  ligne[6] + ", " + "Quantité: "
+        if re.search(r"râpé$", ligne[7]):
+            print(my_string + "1111111111 Ingredients: " +  ligne[6] + ", " + "Quantité: "
                   + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " " + ligne[5])
-        if re.search(r"(goût$)", ligne[7]):
-            print(my_string + " Ingredients: " +  ligne[4] + ", " + "Quantité: "
+        elif re.search(r"(goût$)", ligne[7]):
+            print(my_string + " 22222222Ingredients: " +  ligne[4] + ", " + "Quantité: "
                   + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[5] + " " + ligne[6]+" " + ligne[7])
-        if re.search(r"(blanc$|soya$|d’olive$)", ligne[7]):
-            print(my_string + " Ingredients: " + ligne[6].replace("d’","")+" " + ligne[7] + ", " + "Quantité: "
+        elif re.search(r"(blanc$|soya$|d’olive$)", ligne[7]):
+            print(my_string + "Ingredients: " + ligne[6].replace("d’","")+" " + ligne[7] + ", " + "Quantité: "
                   + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " "+ligne[5] )
-        if re.search(r"(safran$)", ligne[7]):
+        elif re.search(r"(safran$)", ligne[7]):
             print(my_string + " Ingredients: " + ligne[7] + ", " + "Quantité: "
                   + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " "+ligne[5] )
-        if re.search(r"(deux$)", ligne[7]):
-            print(my_string + " Ingredients: " + ligne[2][2:5].replace("d’","") + ", " + "Quantité: "
+        elif re.search(r"(deux$)", ligne[7]):
+            print(my_string + "Ingredients: " + ligne[2][2:5].replace("d’","") + ", " + "Quantité: "
                   + ligne[0] + " " + ligne[1] )
-        if re.search(r"(d'érable$)", ligne[7]):
+        elif re.search(r"(d'érable$)", ligne[7]):
             print(my_string + " Ingredients: " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6]+" " + ligne[7] + ", " + "Quantité: "
                   + ligne[0] + " " + ligne[1] )
 
         else:
-           print(my_string + " Ingredients: " +ligne[5] + " " + ligne[6] + " " + ligne[7]+ ", "  + "Quantité: "
+           print(my_string + "Ingredients: " +ligne[5] + " " + ligne[6] + " " + ligne[7]+ ", "  + "Quantité: "
               + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3] )
 
 
@@ -384,12 +383,12 @@ def affiche100_len_3(len3):
     elif re.search(r"goût", len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + len3[0] + ", " + "Quantité: " + len3[
             1] + " " + len3[2])
-    elif "quelques" in len3:
+    elif re.search("quelques" , len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + len3[2] + ", " + "Quantité: " + len3[
             0] + " " + len3[1])
-    elif "Quelques" in len3:
+    elif re.search("Quelques" ,len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + len3[1] + ", " + "Quantité: " + len3[0])
-    elif "Zeste" in len3:
+    elif re.search("Zeste",len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + len3[2] + ", " + "Quantité: " + (
         len3[1]).replace("d'", ""))
     else:
@@ -399,27 +398,26 @@ def affiche100_len_3(len3):
 
 def affiche100_len_4(len4):
     """ Cette fonction affiche les ligne qui ont um seul mot et ne commanssant pas par un nombre"""
-    if "Quelques" in len4:
+    if re.search("Quelques",len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
         print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] +
               " Ingrédients: " + len4[3] + ", " + "Quantité: " + len4[0] + " " + len4[1])
-    elif "Préparation" in len4:
+    elif re.search("Préparation" ,len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
         print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + ",  " + "Quantité:     ")
-    elif "pincée" in len4:
+    elif re.search("pincée",len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
         print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + len4[
             3] + ",  " + "Quantité: " + len4[0] + " " + len4[1])
-    elif "sel" in len4:
+    elif re.search("sel",len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
         print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + len4[1] + " " + len4[
             3] + ",  " + "Quantité: ")
-    elif "citron" in len4:
+    elif re.search("citron",len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
         print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + len4[
             3] + ",  " + "Quantité: " + (len4[2]).replace("d'", ""))
-    elif "demi-lime" in len4:
+    elif re.search("demi-lime" ,len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
         chaine_lime = (len4[2] + ' ' + len4[3]).split("-")
         print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + chaine_lime[
             1] + ",  " + "Quantité: " + (chaine_lime[0]).replace("d’", ""))
-    elif "quinzaine" in len4:
-        print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + (len4[2]).replace("d’",
-                                                                                                                  "") + ",  " + "Quantité: " +
+    elif re.search("quinzaine",len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3]):
+        print(len4[0] + " " + len4[1] + " " + len4[2] + " " + len4[3] + " Ingrédients: " + (len4[2]).replace("d’", "") + ",  " + "Quantité: " +
               len4[0] + " " + len4[1])
 
     else:
@@ -428,10 +426,10 @@ def affiche100_len_4(len4):
 
 def affiche100_len_5(len5):
     """ Cette fonction affiche les ligne qui ont 5 mots et ne commanssant pas par un nombre"""
-    if "Préparation" in len5:
+    if re.search("Préparation",len5[0] + " " + len5[1] + " " + len5[2] + " " + len5[3] + " " + len5[4]):
         print(len5[0] + " " + len5[1] + " " + len5[2] + " " + len5[3] + " " + len5[
             4] + " Ingrédients: " + ",  " + "Quantité:     ")
-    elif "Feuille" in len5:
+    elif re.search("Feuille" ,len5[0] + " " + len5[1] + " " + len5[2] + " " + len5[3] + " " + len5[4]):
         print(len5[0] + " " + len5[1] + " " + len5[2] + " " + len5[3] + " " + len5[4] + " Ingrédients: " + len5[
             2] + ",  " +
               "Quantité: " + len5[0] + " " + len5[3] + " " + len5[4])
@@ -441,18 +439,17 @@ def affiche100_len_5(len5):
               "Quantité: " + len5[3] + " " + len5[4])
 
 def affiche100_len_6(len6):
-    my_string = len6[0] + " " + len6[1] + " " + len6[2] + " " + len6[3] + " " + len6[4] + " " + len6[5]
-    if "une" in len6:
-        print( my_string + " Ingrédients: " +
+
+    if re.search("une",len6[0] + " " + len6[1] + " " + len6[2] + " " + len6[3] + " " + len6[4] + " " + len6[5]):
+        print(  " Ingrédients: " +
               len6[0] + " " + len6[1] + " " + len6[2] + ",  " +  "Quantité: " + len6[4] + " " + len6[5])
     else:
-        print(my_string+ " Ingrédients: " + ",  " +
-        "Quantité: " )
+        print( " Ingrédients: " + ",  " +  "Quantité: " )
 
 def affiche100_len_7(len7):
     my_string = len7[0] + " " + len7[1] + " " + len7[2] + " " + len7[3] + " " + len7[4] + " " + len7[5]+ " " + len7[6]
-    print(my_string)
-    if "moulin" in len7 :
+
+    if re.search(r"moulin" , len7[0] + " " + len7[1] + " " + len7[2] + " " + len7[3] + " " + len7[4] + " " + len7[5]+ " " + len7[6]):
        print( my_string + " Ingrédiant: "+len7[0] + " " + len7[1] + " " + len7[2] + " " + len7[3] + " " + len7[4]
               + ",  " + "Quantité: " + len7[5]+ " " + len7[6])
     else:
@@ -480,7 +477,7 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[19]
+    Val=classer_text("ingredients.txt")[8]
     #print(len(Val))
     #n=0
     for i in Val:
@@ -490,9 +487,9 @@ if __name__ == "__main__":
     #print(n)
 
 
-    #affiche_longeur3("ingredients.txt", 3)
+    affiche_longeur3("ingredients.txt", 3)
     #affiche_longeur3(Val)
-    affiche_longeur100("ingredients.txt")
+    #affiche_longeur100("ingredients.txt")
     # affiche100_len_6(['une', 'petite', 'tasse', 'de', 'riz', 'rond'])
 
     #affiche100_len_7(['trait', 'jus', 'de', 'citron', 'ou', 'de', 'lime'])

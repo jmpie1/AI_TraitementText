@@ -1,5 +1,5 @@
 import re
-from typing import Any
+
 
 def classer_text(file):
     """ Classer les lignes dans un dictionnaire en fonction du nombre de mot"""
@@ -370,18 +370,18 @@ def affiche100_len_1(len1):
 
 def affiche100_len_2(len2):
     """ Cette fonction affiche les ligne qui ont deux mots et ne commanssant pas par un nombre"""
-    if "Feuilles" in len2:
+    if re.search(r"Feuilles", len2[0]+" "+len2[1]):
         print("Ingrédients: " + (len2[1]).replace("d'", "") + "  " + "Quantité: " + len2[0])
     else:
         print("Ingrédients: " + (len2[0]).replace("des", "") + " " + len2[1] + ", " + "Quantité:     ")
 
 def affiche100_len_3(len3):
     """ Cette fonction affiche les ligne qui ont trois mots et ne commanssant pas par un nombre"""
-    if "Préparation" in len3 or "Finition" in len3:
+    if re.search("Préparation|Finition", len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + ",  " + "Quantité:     ")
-    elif "pour" in len3 or "du" in len3:
+    elif re.search(r"pour|du",len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + len3[0] + ", " + "Quantité:     ")
-    elif "goût" in len3:
+    elif re.search(r"goût", len3[0] + " " + len3[1] + " " + len3[2]):
         print(len3[0] + " " + len3[1] + " " + len3[2] + " Ingrédients: " + len3[0] + ", " + "Quantité: " + len3[
             1] + " " + len3[2])
     elif "quelques" in len3:
@@ -492,7 +492,7 @@ if __name__ == "__main__":
 
     #affiche_longeur3("ingredients.txt", 3)
     #affiche_longeur3(Val)
-    #affiche_longeur100("ingredients.txt")
+    affiche_longeur100("ingredients.txt")
     # affiche100_len_6(['une', 'petite', 'tasse', 'de', 'riz', 'rond'])
 
     #affiche100_len_7(['trait', 'jus', 'de', 'citron', 'ou', 'de', 'lime'])
@@ -510,7 +510,7 @@ if __name__ == "__main__":
     #affiche_longeur_14(Val)
     #affiche_longeur_16(Val)
     #affiche_longeur_18(Val)
-    affiche_longeur_19(Val)
+    #affiche_longeur_19(Val)
 
 
 

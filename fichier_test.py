@@ -445,20 +445,8 @@ def affiche_longeur_100(ma_liste):
     """
     for ligne in  ma_liste:
         lmot = len(ligne)
-        if lmot == 1:
-            affiche100_len_1(ligne)
-        elif lmot == 2:
-            affiche100_len_2(ligne)
-        elif lmot == 3:
-            affiche100_len_3(ligne)
-        elif lmot == 4:
-            affiche100_len_4(ligne)
-        elif lmot == 5:
-            affiche100_len_5(ligne)
-        elif lmot == 6:
-            affiche100_len_6(ligne)
-        elif lmot == 7:
-            affiche100_len_7(ligne)
+        eval("affiche100_len_"+str(lmot)+"("+str(ligne)+")")
+
 
 def affiche_longeur_n(text, start_with_number=False, choice_len_start_with_number=0):
     """

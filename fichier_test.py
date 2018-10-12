@@ -207,57 +207,45 @@ def affiche_longeur_8(text):
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6]+" " + ligne[7]
         if re.search(r"râpé$", ligne[7]):
-            print(my_string + "1111111111 Ingredients: " +  ligne[6] + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " " + ligne[5])
+            print(' "{0}", "{1}" '.format( ligne[6] , ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " " + ligne[5]))
         elif re.search(r"(goût$)", ligne[7]):
-            print(my_string + " 22222222Ingredients: " +  ligne[4] + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[5] + " " + ligne[6]+" " + ligne[7])
+            print(' "{0}", "{1}" '.format( ligne[4], ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[5] + " " + ligne[6]+" " + ligne[7]))
         elif re.search(r"(blanc$|soya$|d’olive$)", ligne[7]):
-            print(my_string + "Ingredients: " + ligne[6].replace("d’","")+" " + ligne[7] + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " "+ligne[5] )
+            print(' "{0}", "{1}" '.format( ligne[6].replace("d’","")+" " + ligne[7],ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " "+ligne[5] ))
         elif re.search(r"(safran$)", ligne[7]):
-            print(my_string + " Ingredients: " + ligne[7] + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " "+ligne[5] )
+            print(' "{0}", "{1}" '.format( ligne[7] ,ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4] + " "+ligne[5] ))
         elif re.search(r"(deux$)", ligne[7]):
-            print(my_string + "Ingredients: " + ligne[2][2:5].replace("d’","") + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] )
+            print(' "{0}", "{1}" '.format( ligne[2][2:5].replace("d’",""), ligne[0] + " " + ligne[1] ))
         elif re.search(r"(d'érable$)", ligne[7]):
-            print(my_string + " Ingredients: " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
-                    ligne[6]+" " + ligne[7] + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] )
+            print(' "{0}", "{1}" '.format( ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7],ligne[0] + " " + ligne[1] ))
 
         else:
-           print(my_string + "Ingredients: " +ligne[5] + " " + ligne[6] + " " + ligne[7]+ ", "  + "Quantité: "
-              + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3] )
+            print(' "{0}", "{1}" '.format(ligne[5] + " " + ligne[6] + " " + ligne[7],ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3] ))
 
 
 def affiche_longeur_9(text):
     for ligne in text:
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6]+" " + ligne[7]+" " + ligne[8]
-        if re.search(r"(biseaux$arachide)",ligne[8]):
-            print(my_string + " Ingredients: " + ligne[4] + " " + ligne[5]  + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] )
+        if re.search(r"(biseaux$)",ligne[8]):
+            print(' "{0}", "{1}" '.format(ligne[4] + " " + ligne[5],ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]) )
 
         elif re.search(r"(arachide$)",ligne[8]):
-            print(my_string + " Ingredients: " + ligne[4].replace("d’", "") + " " + ligne[5]+" "+ ligne[6]+" " + ligne[7]+" " + ligne[8] + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] )
+            print(' "{0}", "{1}" '.format( ligne[4].replace("d’", "") + " " + ligne[5]+" "+ ligne[6]+" " + ligne[7]+" " + ligne[8], ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]) )
 
         elif re.search(r"(nettoyées$)",ligne[8]):
-            print(my_string + " Ingredients: " + ligne[5].replace(",", "") + ", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3] )
+            print(' "{0}", "{1}" '.format( ligne[5].replace(",", ""),ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]) )
         elif re.search(r"(l’eau$)",ligne[8]):
-            print(my_string + " Ingredients: " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
-                    ligne[6]+" " + ligne[7]+" " + ligne[8] +", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] )
+            print(' "{0}", "{1}" '.format(ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8], ligne[0] + " " + ligne[1] ))
         elif re.search(r"(dorées$)",ligne[8]):
-            print(my_string + " Ingredients: " + ligne[5]+ " " +\
-                    ligne[6]+" " + ligne[7]+" " + ligne[8] +", " + "Quantité: "
-                  + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3])
+            print(' "{0}", "{1}" '.format( ligne[5]+ " " +\
+                    ligne[6]+" " + ligne[7]+" " + ligne[8],ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]))
 
         else:
-           print(my_string +" Ingredients: " +ligne[6] + " " + ligne[7] + " " + ligne[8]+ ", "  + "Quantité: "
-              + ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5])
+            print(' "{0}", "{1}" '.format(ligne[6] + " " + ligne[7] + " " + ligne[8],
+                                          ligne[0]+  " "+ligne[1] + " " + ligne[2]+ " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]))
 
 
 
@@ -266,23 +254,21 @@ def affiche_longeur_10(text):
         my_string = ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6]+" " + ligne[7]+" " + ligne[8]+" " + ligne[9]
         if re.search(r"(égoutté[e]?s$)",my_string):
-            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
-                  + ", " + "Ingrédiant: " + ligne[5]+ " " +\
-                    ligne[6]+"" +(ligne[7] + " " + ligne[8]).replace("rincés et",""))
+            print(' "{1}", "{0}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3],ligne[5]+ " " +\
+                    ligne[6]+"" +(ligne[7] + " " + ligne[8]).replace("rincés et","")))
         elif re.search(r"(râpé$)",my_string):
-            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
-                  +  " " + ligne[4]+ " " + ligne[5]+", " + "Ingrédiant: " + ligne[7])
+            print(' "{1}", "{0}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                  +  " " + ligne[4]+ " " + ligne[5], ligne[7]))
         elif re.search(r"(beurre,)",my_string):
-            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
-                  +  " " + ligne[4]+ " " + ligne[5]+" " + ligne[9]+", " + "Ingrédiant: " + ligne[7])
+            print(' "{0}", "{1}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+                  +  " " + ligne[4]+ " " + ligne[5]+" " + ligne[9], ligne[7]))
 
         elif re.search(r"(secs)", my_string):
-            print(my_string + "Quantité: " + ligne[0] + " " + ligne[1] + ", " + "Ingrédiant: " + ligne[3] +" "+ ligne[4] +" "+ ligne[5])
+            print(' "{0}", "{1}" '.format( ligne[0] + " " + ligne[1], ligne[3] +" "+ ligne[4] +" "+ ligne[5]))
         else:
 
-           print(my_string +
-                 " Quantités: " +ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
-                    ligne[6].replace("de","") +" , " +"Ingrédients: "+ ligne[7].replace("d’","")+" " + ligne[8]+ ", ")
+            print(' "{0}", "{1}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+                    ligne[6].replace("de",""),ligne[7].replace("d’","")+" " + ligne[8]+ ", "))
 
 def affiche_longeur_11(text):
     for ligne in text:
@@ -481,7 +467,7 @@ def affiche_longeur100(text100):
 if __name__ == "__main__":
 
     #print(classer_text("ingredients.txt")[100])
-    Val=classer_text("ingredients.txt")[7]
+    Val=classer_text("ingredients.txt")[10]
     #print(len(Val))
     #n=0
     for i in Val:
@@ -502,10 +488,10 @@ if __name__ == "__main__":
        #affiche_longeur_3(Val)
     #affiche_longeur_5(Val)
     #affiche_longeur_6(Val)
-    affiche_longeur_7(Val)
+    #affiche_longeur_7(Val)
     #affiche_longeur_8(Val)
     #affiche_longeur_9(Val)
-    #affiche_longeur_10(Val)
+    affiche_longeur_10(Val)
     #affiche_longeur_11(Val)
     #affiche_longeur_12(Val)
     #affiche_longeur_14(Val)

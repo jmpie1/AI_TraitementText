@@ -83,7 +83,7 @@ def affiche_longeur_2(text):
     """
     for ligne in text:
         #split_text = ligne.split()  # type: string
-        print(ligne[0] + ', ' + (ligne[1]).replace("d'",""))
+        print(' "{1}", "{0}"'.format(ligne[0],(ligne[1]).replace("d'","")))
 
 def affiche_longeur_4(text):
     for ligne in text:
@@ -163,12 +163,12 @@ def affiche_longeur_6(text):
 
 
         elif re.search(r"d'olive$", my_string):
-            print(' "{0}", "{1}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3],ligne[4] + " " + ligne[5]))
+            print(' "{1}", "{0}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3],ligne[4] + " " + ligne[5]))
 
         elif re.search(r"sucre$", my_string):
-            print(' "{0}", "{1}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3],ligne[5] ))
+            print(' "{1}", "{0}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3],ligne[5] ))
         else:
-            print(' "{0}", "{1}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] , ligne[3]+" "+ ligne[4]+" " + ligne[5]))
+            print(' "{1}", "{0}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] , ligne[3]+" "+ ligne[4]+" " + ligne[5]))
 
 def affiche_longeur_7(text):
     for ligne in text:
@@ -260,14 +260,14 @@ def affiche_longeur_10(text):
             print(' "{1}", "{0}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
                   +  " " + ligne[4]+ " " + ligne[5], ligne[7]))
         elif re.search(r"(beurre,)",my_string):
-            print(' "{0}", "{1}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
+            print(' "{1}", "{0}" '.format( ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]
                   +  " " + ligne[4]+ " " + ligne[5]+" " + ligne[9], ligne[7]))
 
         elif re.search(r"(secs)", my_string):
-            print(' "{0}", "{1}" '.format( ligne[0] + " " + ligne[1], ligne[3] +" "+ ligne[4] +" "+ ligne[5]))
+            print(' "{1}", "{0}" '.format( ligne[0] + " " + ligne[1], ligne[3] +" "+ ligne[4] +" "+ ligne[5]))
         else:
 
-            print(' "{0}", "{1}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
+            print(' "{1}", "{0}" '.format(ligne[0] + " " + ligne[1] + " " + ligne[2] + " " + ligne[3]+ " " + ligne[4]+ " " + ligne[5]+ " " +\
                     ligne[6].replace("de",""),ligne[7].replace("d’","")+" " + ligne[8]+ ", "))
 
 def affiche_longeur_11(text):
@@ -458,6 +458,12 @@ def affiche_longeur_n(text, start_with_number=False, choice_len_start_with_numbe
            de mot par lignes).
     :return:
     """
+    if choice_len_start_with_number not in [2,3,4,5,6,7,8,9,10,11,12,14,16,18,19]:
+        print("Pour les ligne ne commencant pas par un nombre le nombre de mot par ligne est indiqué ci-dessous")
+        print([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 19])
+        print("Veullez changer la valeur de paramètre 'choice_len_start_with_number': Ex choice_len_start_with_number = 4")
+
+        return
     ma_liste = classer_text(text)
     if start_with_number:
         if not choice_len_start_with_number:
@@ -477,5 +483,5 @@ def affiche_tout(text):
 
 if __name__ == "__main__":
     affiche_longeur_n("ingredients.txt")
-    #affiche_longeur_n("ingredients.txt", True, 18)
+    #affiche_longeur_n("ingredients.txt", True, 19)
     #affiche_tout("ingredients.txt")
